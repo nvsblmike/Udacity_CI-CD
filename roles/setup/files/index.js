@@ -1,5 +1,5 @@
-import { createServer } from "http";
-var server = createServer(function (req, res) {
+var http = require("http");
+var server = http.createServer(function (req, res) {
 res.writeHead(200);
 res.end("Hello world!");
 });
