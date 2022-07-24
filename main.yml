@@ -3,4 +3,8 @@
   hosts: localhost
 
   roles:
+<<<<<<< HEAD
    - print
+=======
+   - print
+>>>>>>> 9ed475a2234c605140495f28b054ff921576cff2
