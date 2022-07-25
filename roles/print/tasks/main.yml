@@ -5,8 +5,4 @@
 
  - name: print message
    debug:
-<<<<<<< HEAD
-     msg: "{{ print_result.stdout_lines }}"
-=======
-     msg: "{{ print_result.stdout_lines }}"
->>>>>>> 9ed475a2234c605140495f28b054ff921576cff2
+     msg: "{{ print_result.stdout_lines}}"
