@@ -16,7 +16,7 @@ jobs:
         - run:
             name: Install Ansible
             command: |
-               sudo apt install --user ansible
+               pip install --user ansible
         - run:
             name: Run PlayBook and configure server
             command: |
