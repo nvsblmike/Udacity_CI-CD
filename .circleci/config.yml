@@ -6,25 +6,27 @@ orbs:
   # aws-cli: circleci/aws-cli@2.0.3
 # Define the jobs we want to run for this project
 jobs:
-  configure_infrastructure: 
+  # Exercise: Smoke Testing
+  smoke_test:
       docker:
-        - image: python:3.7-alpine3.11
+         - image: alpine:latest
       steps:
-        - checkout
-        - add_ssh_keys:
-                fingerprints: 3f:95:e1:43:6c:70:f6:6f:ec:ca:4b:55:e9:60:89:95
+        - run: apk add --update curl
         - run:
-            name: Install Ansible
-            command: |
-               apk add --update ansible
-        - run:
-            name: Run PlayBook and configure server
-            command: |
-               ansible-playbook -i inventory main-remote.yml
+           name: smoke test
+           command: |
+               URL="https://blog.udacity.com/"
+              # Test if website exists
+               if curl -s --head ${URL} 
+               then
+                 return 0
+               else
+                 return 1
+               fi
 # Sequential workflow
 workflows:
   # Name the workflow
   myWorkflow:
     jobs:
      # - build
-      - configure_infrastructure
+      - smoke_test
