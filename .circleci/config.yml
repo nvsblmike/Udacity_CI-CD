@@ -56,3 +56,10 @@ jobs:
               return 1
             fi
       - destroy_environment
+
+workflow:
+   my_workflow:
+      jobs:
+         - create_infrastructure
+         - smoke_test
+         - destroy_environment
