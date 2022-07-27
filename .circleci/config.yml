@@ -31,7 +31,7 @@ create_infrastructure:
            --template-file template.yml \
            --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:7} \
            --region us-east-1
-  smoke_test:
+smoke_test:
       docker:
          - image: alpine:latest
       steps:
